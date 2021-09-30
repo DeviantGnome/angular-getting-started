@@ -10,6 +10,12 @@
 </div>
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+  <div class="cart-item" *ngFor="let item of items">
+    <input id="products" type="hidden" formControlName="products" value={{ item }}/>
+    <span>{{ item.name }}</span>
+    <span>{{ item.price }}</span>
+  </div>
   
   <div>
     <label for="name">

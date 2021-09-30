@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormControl, FormBuilder } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 
@@ -28,7 +28,8 @@ export class CartComponent implements OnInit {
   onSubmit(): void {
     // Process checkout data here
     this.items = this.cartService.clearCart();
-    console.warn('Your order has been submitted', this.checkoutForm.value);
+    console.info('Your order has been submitted', this.checkoutForm.value);
+    console.info('Here is what you purchased', this.items.values);
     this.checkoutForm.reset();
   }
 
