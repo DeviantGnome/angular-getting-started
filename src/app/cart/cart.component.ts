@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
   items = this.cartService.getItems();
 
   checkoutForm = this.formBuilder.group({
+    products: [],
     name: '',
     address: ''
   });
@@ -27,9 +28,9 @@ export class CartComponent implements OnInit {
 
   onSubmit(): void {
     // Process checkout data here
-    this.items = this.cartService.clearCart();
     console.info('Your order has been submitted', this.checkoutForm.value);
     console.info('Here is what you purchased', this.items.values);
+    this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
   }
 
