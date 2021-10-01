@@ -9,6 +9,7 @@
   <div class="cart-item" *ngFor="let product of items">
     <span>{{ product.name }}</span>
     <span>{{ product.price }}</span>
+    <button type="button" (click)="removeProduct()">Remove</button>
   </div>
 
   <div>

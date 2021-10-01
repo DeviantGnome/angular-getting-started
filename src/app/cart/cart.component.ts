@@ -29,4 +29,8 @@ export class CartComponent implements OnInit {
     // this.checkoutForm.reset();
   }
 
+  removeProduct() {
+    window.alert('Hi');
+  }
+
 }
