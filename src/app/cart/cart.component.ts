@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 
@@ -11,16 +11,16 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
 
   items = this.cartService.getItems();
-
-  checkoutForm = this.formBuilder.group({
-    products: [],
-    name: '',
-    address: ''
+  checkoutForm = new FormGroup({
+    products: new FormControl(this.items),
+    name: new FormControl(''),
+    address: new FormControl('')
   });
+  
+  // products = new FormControl([]);
 
   constructor(
     private cartService: CartService,
-    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -29,9 +29,9 @@ export class CartComponent implements OnInit {
   onSubmit(): void {
     // Process checkout data here
     console.info('Your order has been submitted', this.checkoutForm.value);
-    console.info('Here is what you purchased', this.items.values);
-    this.items = this.cartService.clearCart();
-    this.checkoutForm.reset();
+    // console.info('Here is what you purchased', this.items.values);
+    // this.items = this.cartService.clearCart();
+    // this.checkoutForm.reset();
   }
 
 }

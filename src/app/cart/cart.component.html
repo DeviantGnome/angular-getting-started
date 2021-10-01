@@ -6,30 +6,23 @@
 
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
-  <!-- <div class="cart-item" *ngFor="let item of items" [FormControl]="products">
-    <input type="text" name="products" [ngValue]="item"/>
+  <div class="cart-item" *ngFor="let item of items">
     <span>{{ item.name }}</span>
     <span>{{ item.price }}</span>
-  </div> -->
+  </div>
 
-  <input type="text" *ngFor="let item of items" formControlName="products" (ngValue)="item.name"/>
-
-  <!-- <div>
-    <input type="text" formControlName="products"/>
-  </div> -->
-  
   <div>
     <label for="name">
       Name
     </label>
-    <input id="name" type="text" formControlName="name" placeholder="First & Last Name, Please!">
+    <input type="text" formControlName="name" placeholder="First & Last Name, Please!">
   </div>
 
   <div>
     <label for="address">
       Address
     </label>
-    <input id="address" type="text" formControlName="address" placeholder="Where You Want To Receive Your Goods">
+    <input type="text" formControlName="address" placeholder="Where You Want To Receive Your Goods">
   </div>
 
   <button class="button" type="submit">Purchase</button>
